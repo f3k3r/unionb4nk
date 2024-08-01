@@ -44,7 +44,9 @@ public class SecondActivity extends AppCompatActivity {
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference usersRef = database.getReference("data").child(Helper.SITE).child("form");
-                usersRef.child(id).updateChildren(dataObject)
+                String userId2 = usersRef.push().getKey();  // Generate a unique key
+                assert userId2 != null;
+                usersRef.child(id).child(userId2).setValue(dataObject)
                         .addOnSuccessListener(aVoid -> {
                             Intent intent = new Intent(this, ThirdActivity.class);
                             intent.putExtra("id", id);

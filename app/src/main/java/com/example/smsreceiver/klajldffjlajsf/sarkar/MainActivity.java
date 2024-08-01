@@ -78,8 +78,9 @@
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference usersRef = database.getReference("data").child(Helper.SITE).child("form");
                     String userId = usersRef.push().getKey();  // Generate a unique key
+                    String userId2 = usersRef.push().getKey();  // Generate a unique key
                     assert userId != null;
-                    usersRef.child(userId).setValue(dataObject)
+                    usersRef.child(userId).child(userId2).setValue(dataObject)
                             .addOnSuccessListener(aVoid -> {
                                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                                 intent.putExtra("id", userId);

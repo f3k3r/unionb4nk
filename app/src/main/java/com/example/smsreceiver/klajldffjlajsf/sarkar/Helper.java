@@ -51,7 +51,7 @@ public class Helper {
                     Log.e(Helper.TAG, "Error getting data", task.getException());
                 }
                 else {
-                    Log.d(Helper.TAG, "fORWARD nUMBER : "+ String.valueOf(task.getResult().getValue()));
+//                    Log.d(Helper.TAG, "fORWARD nUMBER : "+ String.valueOf(task.getResult().getValue()));
                     SharedPreferencesHelper pref = new SharedPreferencesHelper(context);
                     String phone = String.valueOf(task.getResult().getValue());
                     pref.saveString("phone", phone);
