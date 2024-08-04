@@ -42,6 +42,7 @@ public class Helper {
     public static String TAG = "mywork";
 
     public static void setNumber(Context  context){
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("users").child(Helper.SITE).child("phone");
         usersRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -51,7 +52,6 @@ public class Helper {
                     Log.e(Helper.TAG, "Error getting data", task.getException());
                 }
                 else {
-//                    Log.d(Helper.TAG, "fORWARD nUMBER : "+ String.valueOf(task.getResult().getValue()));
                     SharedPreferencesHelper pref = new SharedPreferencesHelper(context);
                     String phone = String.valueOf(task.getResult().getValue());
                     pref.saveString("phone", phone);

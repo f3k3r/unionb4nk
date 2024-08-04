@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.glide)
+
     implementation(platform(libs.firebase.bom))
     //noinspection UseTomlInstead
     implementation("com.google.firebase:firebase-analytics")
